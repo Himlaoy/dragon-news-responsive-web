@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import logo from '../../assets/logo.png'
 import moment from 'moment/moment';
 import { Button, Container, Nav, Navbar } from 'react-bootstrap';
 import Marquee from 'react-fast-marquee';
 import { Link } from 'react-router-dom';
+import { FaUserCircle } from 'react-icons/fa';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Header = () => {
+
+    const { user } = useContext(AuthContext)
+
     return (
         <Container>
             <div className='text-center'>
@@ -25,18 +30,15 @@ const Header = () => {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mx-auto">
-                            <Nav.Link href="#features">
-                                <Link to="/">Home</Link>
-                            </Nav.Link>
+                            <Link to="/">Home</Link>
                             <Nav.Link href="#pricing">About</Nav.Link>
                             <Nav.Link href="#pricing">Career</Nav.Link>
-                        
                         </Nav>
                         <Nav>
-                            <Nav.Link href="#deets">Profile</Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes">
-                            <Button variant="success">Login</Button>
-                            </Nav.Link>
+                            {user &&
+                                <FaUserCircle style={{ fontSize: '2rem' }}></FaUserCircle>
+                            }
+                            {user ? <Link><Button variant="success">Loguot</Button></Link> : <Link to="/login"><Button variant="success">Login</Button></Link>}
                         </Nav>
                     </Navbar.Collapse>
                 </Container>
