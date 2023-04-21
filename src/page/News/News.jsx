@@ -1,10 +1,10 @@
 import React from 'react';
+import { Card } from 'react-bootstrap';
 
-const News = () => {
+const News = ({ news }) => {
+    
     return (
-        <div>
-            <h2>The news is coming soon</h2>
-        </div>
+        <h1>coming soon</h1>
     );
 };
 
