@@ -12,8 +12,7 @@ const News = () => {
 
 
     return (
-        <div>
-            
+        <div>            
             <Card >
                 <Card.Img variant="top" src={image_url} />
                 <Card.Body>
@@ -24,7 +23,6 @@ const News = () => {
                     <Link to={`/category/${category_id}`}><Button variant="danger"><FaArrowLeft></FaArrowLeft> All news in this category</Button></Link>
                 </Card.Body>
             </Card>
-
             <NewsInsights></NewsInsights>
         </div>
     );

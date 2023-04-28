@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Form } from 'react-bootstrap';
+import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const Register = () => {
