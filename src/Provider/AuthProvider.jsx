@@ -30,7 +30,7 @@ const AuthProvider = ({children}) => {
        const unSubscription = onAuthStateChanged(auth, loggedUser=>{
             console.log('Logged in user inside the observer', loggedUser)
             setUser(loggedUser)
-            setLoading(true)
+            setLoading(false)
         })
 
         return ()=>{
@@ -42,6 +42,7 @@ const AuthProvider = ({children}) => {
 
     const userInfo = {
         user,
+        loading,
         createUser,
         signInUser,
         logOut,
