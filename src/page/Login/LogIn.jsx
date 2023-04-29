@@ -16,6 +16,12 @@ const LogIn = () => {
 
         console.log(email, password)
 
+       signInUser(email, password)
+       .then(result=>{
+        const loggedUser = result.user
+        console.log(loggedUser)
+       })
+       .catch(error=>console.log(error.message))
 
     }
 
@@ -26,7 +32,7 @@ const LogIn = () => {
             <Form onSubmit={signInHandler}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="email" name='name' required placeholder="Enter name" />
+                    <Form.Control type="email" name='email' required placeholder="Enter email" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">

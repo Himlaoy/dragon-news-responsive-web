@@ -7,7 +7,7 @@ import { AuthContext } from '../../Provider/AuthProvider';
 const Register = () => {
 
     const {createUser} = useContext(AuthContext)
-    console.log({createUser})
+    // console.log({createUser})
 
     const handleRegister =(event)=>{
         event.preventDefault()
@@ -23,8 +23,7 @@ const Register = () => {
             const loggedUser = result.user
             console.log(loggedUser)
         })
-        .cath(error=>console.log(error.message))
-
+        .catch(error=>console.log(error.message))
 
     }
 
@@ -33,7 +32,7 @@ const Register = () => {
             <Container className='w-25 mx-auto '>
                 <h2>Please Register</h2>
                 <Form onSubmit={handleRegister}>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3" controlId="formBasicName">
                         <Form.Label>Name</Form.Label>
                         <Form.Control type="text" name='name' required placeholder="Enter name" />
                     </Form.Group>
@@ -41,7 +40,7 @@ const Register = () => {
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" name='email' required placeholder="Enter email" />
                     </Form.Group>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3" controlId="formBasicPhoto">
                         <Form.Label>Photo URL</Form.Label>
                         <Form.Control type="text" name='Photo' required placeholder="Photo URL" />
                     </Form.Group>
