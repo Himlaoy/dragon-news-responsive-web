@@ -3,10 +3,13 @@ import { useContext } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Provider/AuthProvider';
+import { useState } from 'react';
 
 const Register = () => {
 
     const {createUser} = useContext(AuthContext)
+    const [accept , setAccept] =useState(false)
+
     // console.log({createUser})
 
     const handleRegister =(event)=>{
@@ -24,6 +27,11 @@ const Register = () => {
             console.log(loggedUser)
         })
         .catch(error=>console.log(error.message))
+
+    }
+
+    const handleAccept =(event)=>{
+        setAccept(event.target.checked)
 
     }
 
@@ -50,9 +58,12 @@ const Register = () => {
                         <Form.Control type="password" name='password' required placeholder="Password" />
                     </Form.Group>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                        <Form.Check type="checkbox" label={<></>} />
+                        <Form.Check
+                        onClick={handleAccept} 
+                        type="checkbox" 
+                        label={<>Accept <Link to="/terms">terms & condition</Link></>} />
                     </Form.Group>
-                    <Button variant="primary" type="submit">
+                    <Button variant="primary" disabled={!accept} type="submit">
                         Submit
                     </Button>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
