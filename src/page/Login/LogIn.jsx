@@ -16,7 +16,7 @@ const LogIn = () => {
 
         console.log(email, password)
 
-        
+
     }
 
 
@@ -26,11 +26,7 @@ const LogIn = () => {
             <Form onSubmit={signInHandler}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>Email address</Form.Label>
-                    <Form.Control type="text" name='name' required placeholder="Enter name" />
-                </Form.Group>
-                <Form.Group className="mb-3" controlId="formBasicEmail">
-                    <Form.Label>Photo URL</Form.Label>
-                    <Form.Control type="text" name='Photo' required placeholder="Photo URL" />
+                    <Form.Control type="email" name='name' required placeholder="Enter name" />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
